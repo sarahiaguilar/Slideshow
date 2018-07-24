@@ -56,7 +56,7 @@ SLIDESHOW
 #slide{
 	position:relative;
 	margin:auto;
-	width:100%;
+	/*width:100%;*/
 	overflow: hidden;
 }
 
@@ -73,7 +73,7 @@ SLIDESHOW
 #slide ul li{
 	position: relative;
 	float:left;
-	/*width:25%;*/
+	width:25%;
 }	
 
 #slide ul li img{
