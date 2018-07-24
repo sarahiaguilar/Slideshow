@@ -4,7 +4,9 @@ PROPERTY OBJECT
 var p = {
 	paginacion: document.querySelectorAll("#paginacion li"),
 	item: 0,
-	cajaSlide: document.querySelector("#slide ul")
+	cajaSlide: document.querySelector("#slide ul"),
+	animacionSlide: "fade",
+	imgSlide: document.querySelectorAll("#slide ul li")
 }
 
 /*=============================================
@@ -25,7 +27,23 @@ var m = {
 
 	movimientoSlide: function(item){	
 		p.cajaSlide.style.left = item * -100+"%";
-		console.log(item * -100+"%");
+		for(var i = 0; i < p.paginacion.length; i++){
+
+				p.paginacion[i].style.opacity = 0.5; 
+		}
+		p.paginacion[item].style.opacity = 1; 
+
+		if (p.animacionSlide == "slide") {
+			p.cajaSlide.style.transition = "0.7s left ease-in-out";
+		}
+
+		if (p.animacionSlide == "fade") {
+			p.imgSlide[item].style.opacity = 0;
+			p.imgSlide[item].style.transition = "0.7s opacity ease-in-out";
+			setTimeout(function(){
+				p.imgSlide[item].style.opacity = 1;
+			}, 500);
+		}
 	}	
 }
 
